@@ -1,13 +1,34 @@
 # RuneLite Clan Profiles & QoL Setup Guide
 
-Welcome to the clan RuneLite configuration repository! This repository contains synchronized activity profiles (`Bossing`, `Raids`, `Slayer`, `Wilderness`, `Skilling & Minigames`, `Questing`, `PvM`), master base settings (`default-0.properties`), and the automated synchronization and export tools (`sync_base_profile.py`, `export_profiles.py`).
+Welcome to the clan RuneLite configuration repository! This repository contains synchronized activity profiles (`Bossing`, `Raids`, `Slayer`, `Wilderness`, `Skilling & Minigames`, `Questing`, `PvM`), master base settings (`default-0.properties`), master PvM combat settings (`PvM-10.properties`), and the automated synchronization and export tools (`sync_base_profile.py`, `export_profiles.py`).
+
+---
+
+## 🏗️ Architecture & How Profile Syncing Works
+
+This suite uses an automated **Two-Tier Master Profile System** managed by `sync_base_profile.py`:
+
+- **Tier 1: Master Base QoL (`default-0.properties`)**:
+  - Universal QoL settings (117 HD tuning, `lite-regen-meter` status bars, `player-outline` transparency, `grounditems` loot beams, `questhelper`) + daily/traversal tools (Sailing, Farm run checkers, Birdhouse timers, Alching, Cooking prep).
+  - **Synced to ALL 10 activity profiles** so you never lose basic UI or daily utilities.
+
+- **Tier 2: Master PvM Combat Base (`PvM-10.properties`)**:
+  - Shared combat helpers (`thrall-helper`, `autocast-utilities`, `consumable-cooldowns`, `max-hit-calculator`, `prayer-regeneration-helper`, `arceuus-timers`, `monster-hp-percentage`, `combat-achievements-tracker`).
+  - **Synced ONLY to Combat Profiles** (`Bossing`, `Slayer`, `Raids - ToA`, `Raids - CoX`, `Raids - ToB`, `Wilderness`, `PvM`).
+  - Non-combat profiles (`Skilling & Minigames`, `Questing`) remain clean and free of heavy combat overlays.
+
+- **Universal Data Sync (Newest Profile Priority)**:
+  - Inventory Setups (`inventorysetups.`) and Bank Tags (`banktags.`) are automatically synced across all profiles. Whichever profile you edited most recently in RuneLite takes priority, ensuring your latest setups never get overwritten.
+
+- **Automated Orphaned Config Cleanup**:
+  - Leftover configuration keys for uninstalled plugins are automatically purged across all profiles.
 
 ---
 
 ## What's Included
 
 - **`profiles/`**: Ready-to-import `.properties` files tuned for optimal Old School RuneScape performance, visual clarity, and combat responsiveness.
-- **`sync_base_profile.py`**: Profile synchronization script that ensures shared PvM combat plugins (Thrall Helper, Autocast Utilities, Consumable Cooldowns, etc.) and Universal Data (Inventory Setups, Bank Tags) stay in sync across your activity profiles.
+- **`sync_base_profile.py`**: Profile synchronization script that enforces Two-Tier Master Base + PvM Combat Base syncing and Universal Data propagation.
 - **`export_profiles.py`**: Automated export and sanitization tool that refreshes clean profile files, sorts properties A-to-Z to prevent Git diff churn, and updates [`AUDIT_REPORT.md`](AUDIT_REPORT.md).
 - **`AUDIT_REPORT.md`**: Comprehensive breakdown of top QoL plugin recommendations, 117 HD settings, ground items filters, anti-drag tuning, and POH swaps.
 
@@ -15,18 +36,18 @@ Welcome to the clan RuneLite configuration repository! This repository contains 
 
 ## 🎯 Profile Breakdown & Plugin Categories
 
-This suite uses a modular profile architecture. Master base settings are synced to all profiles, while heavy or activity-specific plugins are isolated to prevent screen clutter and lag:
+This suite uses a modular profile architecture. Master base settings are synced to all profiles, shared combat helpers are synced to combat profiles, and heavy activity plugins are isolated:
 
 | Profile | Category & Purpose | Key Plugin Examples |
 | :--- | :--- | :--- |
-| **`default`** *(Base QoL)* | **Universal Base Profile**: Contains core visual clarity, 117 HD tuning, status bars, true tile, ground item loot beams, and daily/traversal tools (Sailing, Farm run checkers, Birdhouse timers, Alching, Cooking prep). Synced to ALL profiles. | `117hd`, `lite-regen-meter`, `grounditems`, `player-outline`, `sailing`, `birdhouse-overlay`, `abc-alch` |
-| **`PvM`** | **General PvM Combat**: Base QoL + Shared Combat Helpers for general monster hunting, slayer, and combat encounters. | `thrall-helper`, `autocast-utilities`, `consumable-cooldowns`, `max-hit-calculator`, `prayer-regeneration-helper` |
+| **`default`** *(Base QoL)* | **Tier 1 Master Base Profile**: Contains core visual clarity, 117 HD tuning, status bars, true tile, ground item loot beams, and daily/traversal tools (Sailing, Farm run checkers, Birdhouse timers, Alching, Cooking prep). Synced to ALL profiles. | `117hd`, `lite-regen-meter`, `grounditems`, `player-outline`, `sailing`, `birdhouse-overlay`, `abc-alch` |
+| **`PvM`** | **Tier 2 Master PvM Combat Profile**: Base QoL + Shared Combat Helpers (Thrall Helper, Autocast Utilities, Consumable Cooldowns, Prayer Regen, Max Hit Calculator). Synced to ALL Combat profiles. | `thrall-helper`, `autocast-utilities`, `consumable-cooldowns`, `max-hit-calculator`, `prayer-regeneration-helper` |
 | **`Slayer`** | **Slayer & Task Training**: Base QoL + Shared Combat Helpers + Slayer task boosting & task sorters. | `slayer-task-sorter`, `mortimer-calculator`, `thrall-helper`, `autocast-utilities` |
 | **`Bossing`** | **Boss Encounters**: Base QoL + Shared Combat Helpers + Boss fight mechanics & room overlays. | `zulrah-helper`, `hunllef-helper`, `the-gauntlet`, `vorkath-run-warning`, `barrows-door-highlighter` |
 | **`Raids (ToA / CoX / ToB)`** | **End-Game Raiding**: Base QoL + Shared Combat Helpers + Raid puzzle solvers, points counters, and team gear checkers. | `tombs-of-amascut`, `toa-points-tracker`, `cox-additions`, `cox-qol`, `tobqol`, `nyloer` |
-| **`Skilling & Minigames`** | **Skilling & Minigame Efficiency**: Base QoL + 62 dedicated skill training & minigame helpers. | `guardians-of-the-rift-helper`, `tempoross`, `wintertodt-solo-helper`, `mahogany-homes`, `easy-giantsfoundry`, `easy-empty` |
+| **`Skilling & Minigames`** | **Skilling & Minigame Efficiency**: Base QoL + 62 dedicated skill training & minigame helpers. No combat overlays. | `guardians-of-the-rift-helper`, `tempoross`, `wintertodt-solo-helper`, `mahogany-homes`, `easy-giantsfoundry`, `easy-empty` |
 | **`Wilderness`** | **PvP & Wilderness Survival**: Base QoL + Shared Combat Helpers + Wilderness danger alerts & depth boundaries. | `wilderness-player-alarm`, `wilderness-multi-lines`, `protect-item-notifier`, `looting-bag-value`, `rogues-chest` |
-| **`Questing`** | **Questing & Quest Helper**: Base QoL + Quest Helper steps, dialogue skips, puzzle solvers, and quest item highlight overlays. | `quest-helper`, `shortest-path`, `emote-clue-items`, `clue-teleport-helper` |
+| **`Questing`** | **Questing & Quest Helper**: Base QoL + Quest Helper steps, dialogue skips, puzzle solvers, and quest item highlight overlays. No combat overlays. | `quest-helper`, `shortest-path`, `emote-clue-items`, `clue-teleport-helper` |
 
 ---
 
