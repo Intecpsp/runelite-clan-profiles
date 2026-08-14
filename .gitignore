@@ -1,0 +1,15 @@
+# macOS OS metadata
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+
+# Windows OS metadata
+Thumbs.db
+ehthumbs.db
+
+# Account-specific runtime properties & temp files
+profiles/$rsprofile*
+*.tmp
+*.bak
