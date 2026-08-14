@@ -1,6 +1,6 @@
 # RuneLite Clan Profiles & QoL Setup Guide
 
-Welcome to the clan RuneLite configuration repository! This repository contains synchronized activity profiles (`Bossing`, `Raids`, `Slayer`, `Wilderness`, `Skilling & Minigames`, `Questing`), master base settings (`default-0.properties`), and the automated synchronization and export tools (`sync_base_profile.py`, `export_profiles.py`).
+Welcome to the clan RuneLite configuration repository! This repository contains synchronized activity profiles (`Bossing`, `Raids`, `Slayer`, `Wilderness`, `Skilling & Minigames`, `Questing`, `PvM`), master base settings (`default-0.properties`), and the automated synchronization and export tools (`sync_base_profile.py`, `export_profiles.py`).
 
 ---
 
@@ -20,6 +20,7 @@ This suite uses a modular profile architecture. Master base settings are synced 
 | Profile | Category & Purpose | Key Plugin Examples |
 | :--- | :--- | :--- |
 | **`default`** *(Base QoL)* | **Universal Base Profile**: Contains core visual clarity, 117 HD tuning, status bars, true tile, ground item loot beams, and daily/traversal tools (Sailing, Farm run checkers, Birdhouse timers, Alching, Cooking prep). Synced to ALL profiles. | `117hd`, `lite-regen-meter`, `grounditems`, `player-outline`, `sailing`, `birdhouse-overlay`, `abc-alch` |
+| **`PvM`** | **General PvM Combat**: Base QoL + Shared Combat Helpers for general monster hunting, slayer, and combat encounters. | `thrall-helper`, `autocast-utilities`, `consumable-cooldowns`, `max-hit-calculator`, `prayer-regeneration-helper` |
 | **`Slayer`** | **Slayer & Task Training**: Base QoL + Shared Combat Helpers + Slayer task boosting & task sorters. | `slayer-task-sorter`, `mortimer-calculator`, `thrall-helper`, `autocast-utilities` |
 | **`Bossing`** | **Boss Encounters**: Base QoL + Shared Combat Helpers + Boss fight mechanics & room overlays. | `zulrah-helper`, `hunllef-helper`, `the-gauntlet`, `vorkath-run-warning`, `barrows-door-highlighter` |
 | **`Raids (ToA / CoX / ToB)`** | **End-Game Raiding**: Base QoL + Shared Combat Helpers + Raid puzzle solvers, points counters, and team gear checkers. | `tombs-of-amascut`, `toa-points-tracker`, `cox-additions`, `cox-qol`, `tobqol`, `nyloer` |
@@ -59,7 +60,7 @@ Copy all `.properties` files from this repo's `profiles/` folder into your open 
 ### Step 4: Open RuneLite & Switch Profiles
 1. Launch RuneLite.
 2. In the right-hand sidebar, open the **Profiles** plugin icon.
-3. Select the profile for your current activity (`Bossing`, `Raids - ToA`, `Slayer`, `Skilling & Minigames`, `Questing`, etc.)!
+3. Select the profile for your current activity (`Bossing`, `Raids - ToA`, `Slayer`, `Skilling & Minigames`, `Questing`, `PvM`, etc.)!
 
 ---
 
