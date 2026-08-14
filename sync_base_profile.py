@@ -1,28 +1,25 @@
 #!/usr/bin/env python3
 """
-RuneLite Base QoL + Shared Plugin Groups + Universal Data Sync Script (Pure File-Driven)
+RuneLite Two-Tier Master Base + Dynamic PvM Group + Universal Data Sync Script
 ========================================================================================
-Synchronizes Base QoL settings and plugins from a master base profile (default-0.properties)
-to all activity profiles, while dynamically computing Shared Plugin Groups across combat profiles,
-and bidirectionally synchronizing Universal Data Plugins (Inventory Setups, Bank Tags, etc.).
+100% Pure File-Driven Architecture: ZERO Hardcoded Plugin Names in Python.
 
-Single Source of Truth Principles:
-1. NO hardcoded plugin names in Python code.
-2. default-0.properties dynamically defines the Base QoL plugin set.
-3. Profile .properties files on disk dynamically define activity exclusives.
-4. Shared PvM Combat Group is dynamically computed via set intersection across combat profiles.
-5. Enforces sync=false in profiles.json so local profile files are protected from cloud overwrites.
+Two-Tier Master Hierarchy:
+1. Master Base QoL (default-0.properties): Pushes universal QoL plugins & configs outward to ALL profiles.
+2. Master PvM Combat Base (PvM-10.properties): Pushes shared combat plugins & configs outward to ALL Combat Profiles.
+3. Activity Profiles: Dynamically discover and protect profile-specific exclusives directly from disk.
 """
 import os
 import sys
 import json
 import argparse
-from typing import Dict, Set, List, Tuple
+import re
+from typing import Dict, Set, List
 
 PROFILES_DIR = os.path.expanduser("~/.runelite/profiles2")
 
 # Pattern identifying Combat/PvM Activity Profiles
-COMBAT_PROFILE_PATTERNS = ["Slayer", "Raids - ToA", "Raids - CoX", "Raids - ToB", "Bossing", "Wilderness", "Questing"]
+COMBAT_PROFILE_PATTERNS = ["Slayer", "Raids - ToA", "Raids - CoX", "Raids - ToB", "Bossing", "Wilderness", "Questing", "PvM"]
 
 # Prefixes for plugins whose data should be ALWAYS 100% IDENTICAL & UP-TO-DATE across ALL profiles
 UNIVERSAL_SYNC_PREFIXES = [
@@ -100,7 +97,6 @@ def get_external_plugins_set(props: Dict[str, str]) -> Set[str]:
 
 def update_plugins_history(all_active_plugins: Set[str]) -> Set[str]:
     """Update and return all historical external plugins."""
-    import json
     history = set()
     if os.path.exists(HISTORY_FILE):
         try:
@@ -118,7 +114,6 @@ def update_plugins_history(all_active_plugins: Set[str]) -> Set[str]:
 
 def purge_orphaned_config_keys(props: Dict[str, str], uninstalled_plugins: Set[str]) -> int:
     """Purge leftover configuration keys for plugins that are no longer installed anywhere."""
-    import re
     if not uninstalled_plugins:
         return 0
     uninstalled_clean = set(re.sub(r'[^a-zA-Z0-9]', '', p).lower() for p in uninstalled_plugins)
@@ -133,19 +128,36 @@ def purge_orphaned_config_keys(props: Dict[str, str], uninstalled_plugins: Set[s
             purged_count += 1
     return purged_count
 
+def extract_pvm_configs(pvm_props: Dict[str, str], pvm_ext: Set[str]) -> Dict[str, str]:
+    """Extract configuration keys corresponding to pvm_ext plugins from the master PvM profile."""
+    pvm_prefixes = [re.sub(r'[^a-zA-Z0-9]', '', p).lower() for p in pvm_ext]
+    configs = {}
+    for k, v in pvm_props.items():
+        if k.startswith('runelite.') or k == 'runelite.externalPlugins':
+            continue
+        prefix = k.split('.', 1)[0] if '.' in k else k
+        prefix_clean = re.sub(r'[^a-zA-Z0-9]', '', prefix).lower()
+        if prefix_clean in pvm_prefixes or any(prefix_clean.startswith(p) for p in pvm_prefixes):
+            configs[k] = v
+    return configs
+
 def main():
-    parser = argparse.ArgumentParser(description="Sync RuneLite Base QoL profile, Shared Groups, and Universal Data to activity profiles.")
-    parser.add_argument("--base", default="default-0.properties", help="Base profile file name in profiles2 directory (default: default-0.properties)")
+    parser = argparse.ArgumentParser(description="Two-Tier Master Base QoL + PvM Combat Base + Universal Data Sync.")
+    parser.add_argument("--base", default="default-0.properties", help="Tier 1 Master Base QoL profile (default: default-0.properties)")
+    parser.add_argument("--pvm-base", default="PvM-10.properties", help="Tier 2 Master PvM Combat Base profile (default: PvM-10.properties)")
     parser.add_argument("--dry-run", action="store_true", help="Perform a dry run without modifying files.")
     args = parser.parse_args()
 
     base_path = os.path.join(PROFILES_DIR, args.base)
+    pvm_base_path = os.path.join(PROFILES_DIR, args.pvm_base)
+
     if not os.path.exists(base_path):
         print(f"[ERROR] Base profile not found at: {base_path}")
         sys.exit(1)
 
-    print(f"=== RuneLite Base Profile, Shared Group & Universal Data Sync ===")
-    print(f"Base Profile: {base_path}")
+    print(f"=== RuneLite Two-Tier Master Base & Universal Data Sync ===")
+    print(f"Tier 1 Master Base QoL:      {base_path}")
+    print(f"Tier 2 Master PvM Combat Base: {pvm_base_path}")
     if args.dry_run:
         print("[MODE] DRY RUN ONLY - No files will be modified.\n")
 
@@ -174,23 +186,26 @@ def main():
     props_map = {f: parse_properties(os.path.join(PROFILES_DIR, f)) for f in all_files}
     plugins_map = {f: get_external_plugins_set(props_map[f]) for f in all_files}
 
+    # Tier 1 Master Base Plugins
     base_ext = plugins_map.get(args.base, set())
 
-    # Dynamically compute Shared PvM Combat Group via set intersection across combat profiles
-    combat_files = [f for f in all_files if any(pattern in f for pattern in COMBAT_PROFILE_PATTERNS)]
-    if combat_files:
-        combat_non_base_sets = [plugins_map[f] - base_ext for f in combat_files]
-        shared_pvm_ext = set.intersection(*combat_non_base_sets)
-    else:
-        shared_pvm_ext = set()
+    # Tier 2 Master PvM Combat Plugins (dynamically discovered from PvM-10.properties)
+    pvm_master_ext = plugins_map.get(args.pvm_base, set())
+    pvm_ext = pvm_master_ext - base_ext
 
-    # Update plugin history & compute uninstalled plugins dynamically
-    all_active_external_plugins = base_ext | shared_pvm_ext | set().union(*[plugins_map[f] for f in all_files if not f.startswith("$")])
+    # Extract PvM configurations from PvM master profile
+    if args.pvm_base in props_map:
+        pvm_configs = extract_pvm_configs(props_map[args.pvm_base], pvm_ext)
+    else:
+        pvm_configs = {}
+
+    # All active external plugins across all files on disk
+    all_active_external_plugins = base_ext | pvm_ext | set().union(*[plugins_map[f] for f in all_files if not f.startswith("$")])
     historical_plugins = update_plugins_history(all_active_external_plugins)
     uninstalled_plugins = historical_plugins - all_active_external_plugins
 
-    print(f"Base plugins in default-0: {len(base_ext)}")
-    print(f"Dynamically computed Shared PvM Combat Group plugins: {len(shared_pvm_ext)}")
+    print(f"Base plugins in default-0:            {len(base_ext)}")
+    print(f"Shared PvM plugins in PvM-10:         {len(pvm_ext)} ({', '.join(sorted(list(pvm_ext)))})")
     print(f"Uninstalled external plugins detected: {len(uninstalled_plugins)}\n")
 
     for pf in sorted(all_files):
@@ -202,13 +217,13 @@ def main():
         is_combat = any(pattern in pf for pattern in COMBAT_PROFILE_PATTERNS)
         is_base = pf.startswith("default-0")
 
-        # Dynamically compute exclusives: non-base and non-shared plugins currently in target profile
-        exclusives = target_ext - base_ext - shared_pvm_ext
+        # Exclusives are dynamically computed from disk
+        exclusives = target_ext - base_ext - pvm_ext
 
         if is_base:
             updated_ext = base_ext
         else:
-            updated_ext = base_ext | (shared_pvm_ext if is_combat else set()) | exclusives
+            updated_ext = base_ext | (pvm_ext if is_combat else set()) | exclusives
 
         added_to_target = updated_ext - target_ext
         pruned_plugins = target_ext - updated_ext
@@ -234,15 +249,24 @@ def main():
         # 5. Global Settings & Plugin Configurations Overwrite Sync from Base
         settings_synced = 0
         for k, v in base_props.items():
-            if (k.startswith('runelite.') or '.' in k) and not any(k.startswith(prefix) for prefix in UNIVERSAL_SYNC_PREFIXES):
+            if (k.startswith('runelite.') or '.' in k) and not any(k.startswith(prefix) for prefix in UNIVERSAL_SYNC_PREFIXES) and k != 'runelite.externalPlugins':
                 if target_props.get(k) != v:
                     target_props[k] = v
                     settings_synced += 1
 
-        # 6. Purge Orphaned Config Keys for Uninstalled External Plugins
+        # 6. Shared PvM Group Configs Merge (for Combat profiles only)
+        pvm_synced = 0
+        if is_combat and pvm_configs:
+            for k, v in pvm_configs.items():
+                if target_props.get(k) != v:
+                    target_props[k] = v
+                    pvm_synced += 1
+
+        # 7. Purge Orphaned Config Keys for Uninstalled External Plugins
         purged_keys_count = purge_orphaned_config_keys(target_props, uninstalled_plugins)
 
-        if not args.dry_run and (added_to_target or pruned_plugins or builtin_synced or univ_synced or settings_synced or purged_keys_count > 0):
+        # Write properties to disk
+        if not args.dry_run:
             write_properties(target_path, target_props, f"Synced by sync_base_profile.py")
 
         print(f"[SYNC] -> {target_filename}:")
@@ -256,8 +280,10 @@ def main():
             print(f"       - Purged Orphaned Config Keys (Uninstalled Plugins): {purged_keys_count}")
         print(f"       + Universal Data Keys Synced (Inventory Setups / Bank Tags): {univ_synced}")
         print(f"       + Base settings merged: {settings_synced}")
+        if is_combat:
+            print(f"       + PvM settings merged: {pvm_synced}")
 
-    print("\n[SUCCESS] Profile, Shared Group, and Universal Data sync completed!")
+    print("\n[SUCCESS] Two-Tier Master Base, PvM Group, and Universal Data sync completed!")
 
 if __name__ == "__main__":
     main()
