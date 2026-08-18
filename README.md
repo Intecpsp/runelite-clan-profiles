@@ -1,6 +1,30 @@
 # RuneLite Clan Profiles & QoL Setup Guide
 
-Welcome to the clan RuneLite configuration repository! This repository contains synchronized activity profiles (`Bossing`, `Raids`, `Slayer`, `Wilderness`, `Skilling & Minigames`, `Questing`, `PvM`), master base settings (`default-0.properties`), master PvM combat settings (`PvM-10.properties`), and the automated synchronization and export tools (`sync_base_profile.py`, `export_profiles.py`).
+Welcome to the clan RuneLite configuration repository! This repository contains synchronized activity profiles (`Bossing`, `Raids`, `Slayer`, `Wilderness`, `Skilling & Minigames`, `Questing`, `PvM`), master base settings (`default-0.properties`), and automated import, export, and sync tools (`import_profiles.py`, `export_profiles.py`, `sync_base_profile.py`).
+
+---
+
+## 🚀 1-Click Automated Import (Recommended)
+
+Importing these profiles takes less than 10 seconds. The automated import script automatically creates a **pre-import timestamped backup** of your existing profiles and **preserves all of your personal Inventory Setups, Bank Tags, Tile Markers, and Notes**:
+
+1. Open your terminal or command prompt in this repository folder.
+2. Run the import script:
+   ```bash
+   python3 import_profiles.py
+   ```
+3. Restart RuneLite and switch profiles using the **Profiles** plugin icon on the right sidebar!
+
+--- 
+
+## 🛡️ Personal Data Protection & Safety Features
+
+When you run `import_profiles.py`, your personal setup is 100% safe:
+- **🔒 Timestamped Pre-Import Backup**: Before any files are touched, your entire current profile directory is backed up to `~/.runelite/profiles2_backup_YYYYMMDD_HHMMSS/`.
+- **🎒 Inventory Setups Preserved**: Custom gear and inventory loadouts (`inventorysetups.`) are extracted and merged into every imported profile.
+- **🏷️ Bank Tags & Layouts Preserved**: Custom bank tags, tab icons, and custom grid layouts (`banktags.`) are preserved.
+- **📍 Tile & Object Markers Preserved**: Marked ground tiles (`groundMarker.`) and highlighted objects (`objectindicators.`) are preserved.
+- **📝 Personal Notes & Item Tags Preserved**: Notepad entries (`notes.`, `richtextnotes.`) and item outline colors (`inventorytags.`) are preserved.
 
 ---
 
@@ -27,6 +51,7 @@ This suite uses an automated **Two-Tier Master Profile System** managed by `sync
 
 ## What's Included
 
+- **`import_profiles.py`**: Automated 1-click import script with timestamped backups and personal user data protection.
 - **`profiles/`**: Ready-to-import `.properties` files tuned for optimal Old School RuneScape performance, visual clarity, and combat responsiveness.
 - **`sync_base_profile.py`**: Profile synchronization script that enforces Two-Tier Master Base + PvM Combat Base syncing and Universal Data propagation.
 - **`export_profiles.py`**: Automated export and sanitization tool that refreshes clean profile files, sorts properties A-to-Z to prevent Git diff churn, and updates [`AUDIT_REPORT.md`](AUDIT_REPORT.md).
@@ -35,8 +60,6 @@ This suite uses an automated **Two-Tier Master Profile System** managed by `sync
 ---
 
 ## 🎯 Profile Breakdown & Plugin Categories
-
-This suite uses a modular profile architecture. Master base settings are synced to all profiles, shared combat helpers are synced to combat profiles, and heavy activity plugins are isolated:
 
 | Profile | Category & Purpose | Key Plugin Examples |
 | :--- | :--- | :--- |
@@ -51,58 +74,18 @@ This suite uses a modular profile architecture. Master base settings are synced 
 
 ---
 
-## 🚀 Beginner Quick-Start: How to Import Profiles into RuneLite
+## 🛠️ Manual Import Instructions (Alternative)
 
-Importing these profiles takes less than 2 minutes. Follow the step-by-step instructions below for your operating system:
-
-### Step 1: Close RuneLite Completely
-Make sure your RuneLite client is closed before copying files.
-
-### Step 2: Open Your RuneLite Profiles Folder
-
-#### 💻 On Windows:
-1. Press `Win + R` on your keyboard to open the **Run** dialog box.
-2. Copy and paste the following path and press **Enter**:
-   ```text
-   %USERPROFILE%\.runelite\profiles2
-   ```
-
-#### 🍎 On Mac:
-1. Open **Finder**.
-2. Press `Cmd + Shift + G` on your keyboard to open **Go to Folder**.
-3. Copy and paste the following path and press **Enter**:
-   ```text
-   ~/.runelite/profiles2
-   ```
-
-### Step 3: Copy Profile Files
-Copy all `.properties` files from this repo's `profiles/` folder into your open `profiles2` folder.
-
-### Step 4: Open RuneLite & Switch Profiles
-1. Launch RuneLite.
-2. In the right-hand sidebar, open the **Profiles** plugin icon.
-3. Select the profile for your current activity (`Bossing`, `Raids - ToA`, `Slayer`, `Skilling & Minigames`, `Questing`, `PvM`, etc.)!
+If you prefer to copy files manually without running Python:
+1. Close RuneLite completely.
+2. Open your RuneLite profiles folder (`%USERPROFILE%\.runelite\profiles2` on Windows or `~/.runelite/profiles2` on Mac).
+3. Copy all `.properties` files from this repo's `profiles/` folder into your open `profiles2` folder.
+4. Launch RuneLite and switch profiles.
 
 ---
 
-## ⚙️ Automated Privacy Sanitization & Customization
-
-### 🔒 Built-in Privacy Sanitization Engine
-When exported via `export_profiles.py`, sensitive personal data is automatically stripped from all profile files:
-- **Discord Webhooks**: Active Discord Webhook URLs across all notification plugins (`Dink`, `Discord Collection Logger`, `OSRS-TCG`) are sanitized to `https://discord.com/api/webhooks/YOUR_WEBHOOK_HERE`.
-- **Account & Storage Credentials**: Login salts (`rsprofile.loginsalt`), account IDs (`rsprofile.`), and account storage data (`dudewheresmystuff.rsprofile.`) are filtered out.
-- **Social & Friend Tracking**: Friend online tracking RSNs/timestamps (`lastseenonline.`), friend notes (`friendnotes.`), and friend notification preferences (`friendlist.`) are completely stripped.
-- **Clan & Party Data**: Party room passcodes (`party.previouspartyid`), Wise Old Man verification tokens (`womutils.verificationcode`), and saved clan chat channel lists (`clanchat.chatsData`) are automatically purged.
-- **Personal Notes**: Notepad entries (`notes.`, `richtextnotes.`) are removed.
-
-### 🛠️ Optional Personal Settings to Customize After Import:
-1. **Personal Discord Webhooks**:
-   - If you want loot drops, level ups, or collection logs sent to your personal Discord server, open plugin settings for **Dink**, **Discord Collection Logger**, or **OSRS-TCG** and paste your webhook URL.
-2. **Character Model Visibility (`Entity Hider` vs `Player Outline`)**:
-   - Character model transparency (`Hide Local Player`) is enabled by default alongside **Player Outline** so you can see ground markers beneath your feet.
-   - If you prefer to see your normal 3D character model, open **Entity Hider** settings and uncheck `Hide Local Player`.
-3. **Camera Controls (`Key Remapping`)**:
-   - Camera movement is set to `WASD` keys. If you prefer classic arrow keys for camera rotation, open **Key Remapping** settings.
+## ⚙️ Automated Privacy Sanitization Engine
+When exported via `export_profiles.py`, sensitive personal data is automatically stripped from all profile files (Discord webhooks, login salts, account IDs, friend tracking, friend notes, party IDs, Wise Old Man clan tokens, and clan chat history).
 
 ---
 
