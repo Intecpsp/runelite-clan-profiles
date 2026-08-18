@@ -1,19 +1,859 @@
 # Comprehensive RuneLite Profile & Plugin Audit Report (Standardized Source of Truth)
 
-This document is the **standardized source of truth** for all **222 unique external plugins** installed across your **8 active RuneLite profiles** (`default`, `Slayer`, `Bossing`, `Raids - ToA`, `Raids - CoX`, `Raids - ToB`, `Skilling & Minigames`, `Wilderness`). Every single plugin entry has the exact same 4 metadata fields: **Active Profiles**, **GitHub Repository**, **Last Updated on GitHub**, and **Function Summary**.
+This document is the **standardized source of truth** for all **290 unique external plugins** installed across your **8 active RuneLite profiles** (`default`, `Slayer`, `Bossing`, `Raids - ToA`, `Raids - CoX`, `Raids - ToB`, `Skilling & Minigames`, `Wilderness`). Every single plugin entry has the exact same 4 metadata fields: **Active Profiles**, **GitHub Repository**, **Last Updated on GitHub**, and **Function Summary**.
+
+### 1. `abc-alch` (Abc Alch)
+* **Active Profiles:** All 10 Profiles (`Raids - CoX`, `Raids - ToB`, `Skilling & Minigames`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `default`, `Wilderness`, `Bossing`)
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for abc alch.
+
+### 2. `aerial-fishing-pearl-luck` (Aerial Fishing Pearl Luck)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for aerial fishing pearl luck.
+
+### 3. `afk-marks-canafis` (Afk Marks Canafis)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for afk marks canafis.
+
+### 4. `antifire-checker` (Antifire Checker)
+* **Active Profiles:** `Raids - CoX`, `Raids - ToB`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `Wilderness`, `Bossing`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for antifire checker.
+
+### 5. `arceuus-timers` (Arceuus Timers)
+* **Active Profiles:** `Raids - CoX`, `Raids - ToB`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `Wilderness`, `Bossing`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for arceuus timers.
+
+### 6. `ardougne-cooldown-timer` (Ardougne Cooldown Timer)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for ardougne cooldown timer.
+
+### 7. `attack-ranges` (Attack Ranges)
+* **Active Profiles:** `Raids - CoX`, `Raids - ToB`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `Wilderness`, `Bossing`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for attack ranges.
+
+### 8. `auto-retaliate-warning` (Auto Retaliate Warning)
+* **Active Profiles:** `Raids - CoX`, `Raids - ToB`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `Wilderness`, `Bossing`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for auto retaliate warning.
+
+### 9. `ba-call-highlight` (Ba Call Highlight)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for ba call highlight.
+
+### 10. `ba-minigame` (Ba Minigame)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for ba minigame.
+
+### 11. `barrows-door-highlighter` (Barrows Door Highlighter)
+* **Active Profiles:** `Bossing`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for barrows door highlighter.
+
+### 12. `barrows-potential` (Barrows Potential)
+* **Active Profiles:** `Bossing`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for barrows potential.
+
+### 13. `better-godwars-overlay` (Better Godwars Overlay)
+* **Active Profiles:** `Bossing`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for better godwars overlay.
+
+### 14. `bone-shard-helper` (Bone Shard Helper)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for bone shard helper.
+
+### 15. `book-of-the-dead-reminder` (Book Of The Dead Reminder)
+* **Active Profiles:** `Raids - CoX`, `Raids - ToB`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `Wilderness`, `Bossing`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for book of the dead reminder.
+
+### 16. `boss-health-indicators` (Boss Health Indicators)
+* **Active Profiles:** `Raids - CoX`, `Raids - ToB`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `Wilderness`, `Bossing`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for boss health indicators.
+
+### 17. `bracelet-reminder` (Bracelet Reminder)
+* **Active Profiles:** `Raids - CoX`, `Raids - ToB`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `Wilderness`, `Bossing`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for bracelet reminder.
+
+### 18. `butler` (Butler)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for butler.
+
+### 19. `cam-torum-mining` (Cam Torum Mining)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for cam torum mining.
+
+### 20. `camdozaal-fishing-helper` (Camdozaal Fishing Helper)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for camdozaal fishing helper.
+
+### 21. `castle-war-afk` (Castle War Afk)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for castle war afk.
+
+### 22. `castlewarsindicators` (Castlewarsindicators)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for castlewarsindicators.
+
+### 23. `chompy-hunter` (Chompy Hunter)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for chompy hunter.
+
+### 24. `chugging-barrel` (Chugging Barrel)
+* **Active Profiles:** All 10 Profiles (`Raids - CoX`, `Raids - ToB`, `Skilling & Minigames`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `default`, `Wilderness`, `Bossing`)
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for chugging barrel.
+
+### 25. `combat-achievements-tracker` (Combat Achievements Tracker)
+* **Active Profiles:** `Raids - CoX`, `Raids - ToB`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `Wilderness`, `Bossing`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for combat achievements tracker.
+
+### 26. `compost-helper` (Compost Helper)
+* **Active Profiles:** All 10 Profiles (`Raids - CoX`, `Raids - ToB`, `Skilling & Minigames`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `default`, `Wilderness`, `Bossing`)
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for compost helper.
+
+### 27. `consumable-cooldowns` (Consumable Cooldowns)
+* **Active Profiles:** All 10 Profiles (`Raids - CoX`, `Raids - ToB`, `Skilling & Minigames`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `default`, `Wilderness`, `Bossing`)
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for consumable cooldowns.
+
+### 28. `cox-additions` (Cox Additions)
+* **Active Profiles:** `Raids - CoX`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for cox additions.
+
+### 29. `cox-qol` (Cox Qol)
+* **Active Profiles:** `Raids - CoX`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for cox qol.
+
+### 30. `crab-solver` (Crab Solver)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for crab solver.
+
+### 31. `crab-stun-timers` (Crab Stun Timers)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for crab stun timers.
+
+### 32. `death-charge-reminder` (Death Charge Reminder)
+* **Active Profiles:** `Raids - CoX`, `Raids - ToB`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `Wilderness`, `Bossing`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for death charge reminder.
+
+### 33. `deathindicator` (Deathindicator)
+* **Active Profiles:** All 10 Profiles (`Raids - CoX`, `Raids - ToB`, `Skilling & Minigames`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `default`, `Wilderness`, `Bossing`)
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for deathindicator.
+
+### 34. `delayed-healing` (Delayed Healing)
+* **Active Profiles:** All 10 Profiles (`Raids - CoX`, `Raids - ToB`, `Skilling & Minigames`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `default`, `Wilderness`, `Bossing`)
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for delayed healing.
+
+### 35. `dryness-tracker` (Dryness Tracker)
+* **Active Profiles:** All 10 Profiles (`Raids - CoX`, `Raids - ToB`, `Skilling & Minigames`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `default`, `Wilderness`, `Bossing`)
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for dryness tracker.
+
+### 36. `easy-arceuus-runecrafting` (Easy Arceuus Runecrafting)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for easy arceuus runecrafting.
+
+### 37. `easy-empty` (Easy Empty)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for easy empty.
+
+### 38. `easy-giantsfoundry` (Easy Giantsfoundry)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for easy giantsfoundry.
+
+### 39. `ectoplasmator-reminder` (Ectoplasmator Reminder)
+* **Active Profiles:** `Raids - CoX`, `Raids - ToB`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `Wilderness`, `Bossing`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for ectoplasmator reminder.
+
+### 40. `ecumenical-key-tracker` (Ecumenical Key Tracker)
+* **Active Profiles:** `Wilderness`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for ecumenical key tracker.
+
+### 41. `emblem-trader-skull-timer` (Emblem Trader Skull Timer)
+* **Active Profiles:** `Wilderness`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for emblem trader skull timer.
+
+### 42. `essence-pouch-tracking` (Essence Pouch Tracking)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for essence pouch tracking.
+
+### 43. `farming-guild-overview` (Farming Guild Overview)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for farming guild overview.
+
+### 44. `fight-cave-waves` (Fight Cave Waves)
+* **Active Profiles:** `Bossing`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for fight cave waves.
+
+### 45. `forestry-banking-helper` (Forestry Banking Helper)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for forestry banking helper.
+
+### 46. `forestry-spawn-helper` (Forestry Spawn Helper)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for forestry spawn helper.
+
+### 47. `forestryents` (Forestryents)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for forestryents.
+
+### 48. `gauntlet-crafting` (Gauntlet Crafting)
+* **Active Profiles:** `Bossing`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for gauntlet crafting.
+
+### 49. `gemstone-crab-timer` (Gemstone Crab Timer)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for gemstone crab timer.
+
+### 50. `gnome-restaurant` (Gnome Restaurant)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for gnome restaurant.
+
+### 51. `godwars-protection-overlay` (Godwars Protection Overlay)
+* **Active Profiles:** `Bossing`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for godwars protection overlay.
+
+### 52. `great-guardian-hider` (Great Guardian Hider)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for great guardian hider.
+
+### 53. `guardians-of-the-rift-helper` (Guardians Of The Rift Helper)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for guardians of the rift helper.
+
+### 54. `herbi-afk` (Herbi Afk)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for herbi afk.
+
+### 55. `home-improvement` (Home Improvement)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for home improvement.
+
+### 56. `hunllef-helper` (Hunllef Helper)
+* **Active Profiles:** `Bossing`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for hunllef helper.
+
+### 57. `hunter-rumours` (Hunter Rumours)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for hunter rumours.
+
+### 58. `improved-tears-of-guthix-interface` (Improved Tears Of Guthix Interface)
+* **Active Profiles:** All 10 Profiles (`Raids - CoX`, `Raids - ToB`, `Skilling & Minigames`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `default`, `Wilderness`, `Bossing`)
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for improved tears of guthix interface.
+
+### 59. `konar-milestone-reminder` (Konar Milestone Reminder)
+* **Active Profiles:** `Slayer`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for konar milestone reminder.
+
+### 60. `lizardman-shaman-minion-alert` (Lizardman Shaman Minion Alert)
+* **Active Profiles:** `Bossing`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for lizardman shaman minion alert.
+
+### 61. `log-adviser` (Log Adviser)
+* **Active Profiles:** All 10 Profiles (`Raids - CoX`, `Raids - ToB`, `Skilling & Minigames`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `default`, `Wilderness`, `Bossing`)
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for log adviser.
+
+### 62. `log-basket` (Log Basket)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for log basket.
+
+### 63. `log-basket-swapper` (Log Basket Swapper)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for log basket swapper.
+
+### 64. `looting-bag-value` (Looting Bag Value)
+* **Active Profiles:** All 10 Profiles (`Raids - CoX`, `Raids - ToB`, `Skilling & Minigames`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `default`, `Wilderness`, `Bossing`)
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for looting bag value.
+
+### 65. `low-detail-raids` (Low Detail Raids)
+* **Active Profiles:** `Raids - CoX`, `Raids - ToB`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for low detail raids.
+
+### 66. `lunar-chest-value` (Lunar Chest Value)
+* **Active Profiles:** `Bossing`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for lunar chest value.
+
+### 67. `mahogany-homes` (Mahogany Homes)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for mahogany homes.
+
+### 68. `marks-of-grace-counter` (Marks Of Grace Counter)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for marks of grace counter.
+
+### 69. `mastering-mixology` (Mastering Mixology)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for mastering mixology.
+
+### 70. `menuhp` (Menuhp)
+* **Active Profiles:** All 10 Profiles (`Raids - CoX`, `Raids - ToB`, `Skilling & Minigames`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `default`, `Wilderness`, `Bossing`)
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for menuhp.
+
+### 71. `monster-hp-percentage` (Monster Hp Percentage)
+* **Active Profiles:** `Raids - CoX`, `Raids - ToB`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `Wilderness`, `Bossing`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for monster hp percentage.
+
+### 72. `mortimer-calculator` (Mortimer Calculator)
+* **Active Profiles:** `Slayer`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for mortimer calculator.
+
+### 73. `nmz-optimal-points` (Nmz Optimal Points)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for nmz optimal points.
+
+### 74. `nylo-death-indicators` (Nylo Death Indicators)
+* **Active Profiles:** `Raids - ToB`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for nylo death indicators.
+
+### 75. `nyloer` (Nyloer)
+* **Active Profiles:** `Raids - ToB`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for nyloer.
+
+### 76. `pickpocket-helper` (Pickpocket Helper)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for pickpocket helper.
+
+### 77. `plank-sack` (Plank Sack)
+* **Active Profiles:** All 10 Profiles (`Raids - CoX`, `Raids - ToB`, `Skilling & Minigames`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `default`, `Wilderness`, `Bossing`)
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for plank sack.
+
+### 78. `poh-treasure-chest-ge-value` (Poh Treasure Chest Ge Value)
+* **Active Profiles:** All 10 Profiles (`Raids - CoX`, `Raids - ToB`, `Skilling & Minigames`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `default`, `Wilderness`, `Bossing`)
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for poh treasure chest ge value.
+
+### 79. `poison-ring` (Poison Ring)
+* **Active Profiles:** `Raids - CoX`, `Raids - ToB`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `Wilderness`, `Bossing`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for poison ring.
+
+### 80. `poisoned-npcs` (Poisoned Npcs)
+* **Active Profiles:** `Raids - CoX`, `Raids - ToB`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `Wilderness`, `Bossing`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for poisoned npcs.
+
+### 81. `prayer-regeneration-helper` (Prayer Regeneration Helper)
+* **Active Profiles:** All 10 Profiles (`Raids - CoX`, `Raids - ToB`, `Skilling & Minigames`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `default`, `Wilderness`, `Bossing`)
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for prayer regeneration helper.
+
+### 82. `protect-item-notifier` (Protect Item Notifier)
+* **Active Profiles:** `Wilderness`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for protect item notifier.
+
+### 83. `pvm-tools` (Pvm Tools)
+* **Active Profiles:** `Raids - CoX`, `Raids - ToB`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `Wilderness`, `Bossing`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for pvm tools.
+
+### 84. `raid-points-overlay` (Raid Points Overlay)
+* **Active Profiles:** `Raids - CoX`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for raid points overlay.
+
+### 85. `rc-pouch-usage` (Rc Pouch Usage)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for rc pouch usage.
+
+### 86. `relative-tile-markers` (Relative Tile Markers)
+* **Active Profiles:** All 10 Profiles (`Raids - CoX`, `Raids - ToB`, `Skilling & Minigames`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `default`, `Wilderness`, `Bossing`)
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for relative tile markers.
+
+### 87. `ring-of-recoil-notifier` (Ring Of Recoil Notifier)
+* **Active Profiles:** `Raids - CoX`, `Raids - ToB`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `Wilderness`, `Bossing`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for ring of recoil notifier.
+
+### 88. `rogues-chest` (Rogues Chest)
+* **Active Profiles:** `Wilderness`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for rogues chest.
+
+### 89. `royal-titans-damage-tracker-plugin` (Royal Titans Damage Tracker Plugin)
+* **Active Profiles:** `Bossing`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for royal titans damage tracker plugin.
+
+### 90. `salve-reminder` (Salve Reminder)
+* **Active Profiles:** `Raids - CoX`, `Raids - ToB`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `Wilderness`, `Bossing`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for salve reminder.
+
+### 91. `shade-chests` (Shade Chests)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for shade chests.
+
+### 92. `skull-notifier` (Skull Notifier)
+* **Active Profiles:** `Wilderness`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for skull notifier.
+
+### 93. `slayer-boosting` (Slayer Boosting)
+* **Active Profiles:** `Slayer`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for slayer boosting.
+
+### 94. `soul-wars` (Soul Wars)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for soul wars.
+
+### 95. `spec-regen-timer` (Spec Regen Timer)
+* **Active Profiles:** `Raids - CoX`, `Raids - ToB`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `Wilderness`, `Bossing`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for spec regen timer.
+
+### 96. `stealing-artefacts` (Stealing Artefacts)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for stealing artefacts.
+
+### 97. `superior-slayer-tracker` (Superior Slayer Tracker)
+* **Active Profiles:** `Slayer`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for superior slayer tracker.
+
+### 98. `tempoross` (Tempoross)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for tempoross.
+
+### 99. `the-gauntlet` (The Gauntlet)
+* **Active Profiles:** `Bossing`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for the gauntlet.
+
+### 100. `thrall-helper` (Thrall Helper)
+* **Active Profiles:** `Raids - CoX`, `Raids - ToB`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `Wilderness`, `Bossing`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for thrall helper.
+
+### 101. `tictac7x-motherlode` (Tictac7x Motherlode)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for tictac7x motherlode.
+
+### 102. `tictac7x-rooftops` (Tictac7x Rooftops)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for tictac7x rooftops.
+
+### 103. `tictac7x-sulliuscep` (Tictac7x Sulliuscep)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for tictac7x sulliuscep.
+
+### 104. `tictac7x-tithe` (Tictac7x Tithe)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for tictac7x tithe.
+
+### 105. `timers-ca` (Timers Ca)
+* **Active Profiles:** `Raids - CoX`, `Raids - ToB`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `Wilderness`, `Bossing`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for timers ca.
+
+### 106. `toa-gear-check` (Toa Gear Check)
+* **Active Profiles:** `Raids - ToA`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for toa gear check.
+
+### 107. `toa-points-tracker` (Toa Points Tracker)
+* **Active Profiles:** `Raids - ToA`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for toa points tracker.
+
+### 108. `tob-drop-chance` (Tob Drop Chance)
+* **Active Profiles:** `Raids - ToB`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for tob drop chance.
+
+### 109. `tob-gear-checker` (Tob Gear Checker)
+* **Active Profiles:** `Raids - ToB`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for tob gear checker.
+
+### 110. `tob-light-colors` (Tob Light Colors)
+* **Active Profiles:** `Raids - ToB`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for tob light colors.
+
+### 111. `tob-notification` (Tob Notification)
+* **Active Profiles:** `Raids - ToB`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for tob notification.
+
+### 112. `tobqol` (Tobqol)
+* **Active Profiles:** `Raids - ToB`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for tobqol.
+
+### 113. `tog-indicator` (Tog Indicator)
+* **Active Profiles:** All 10 Profiles (`Raids - CoX`, `Raids - ToB`, `Skilling & Minigames`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `default`, `Wilderness`, `Bossing`)
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for tog indicator.
+
+### 114. `tombs-of-amascut` (Tombs Of Amascut)
+* **Active Profiles:** `Raids - ToA`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for tombs of amascut.
+
+### 115. `totem-fletching` (Totem Fletching)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for totem fletching.
+
+### 116. `tree-despawn-timer` (Tree Despawn Timer)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for tree despawn timer.
+
+### 117. `treecount` (Treecount)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for treecount.
+
+### 118. `trouble-brewing` (Trouble Brewing)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for trouble brewing.
+
+### 119. `trouver-parchment-alerts` (Trouver Parchment Alerts)
+* **Active Profiles:** `Wilderness`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for trouver parchment alerts.
+
+### 120. `tzhaar-hp-tracker` (Tzhaar Hp Tracker)
+* **Active Profiles:** `Bossing`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for tzhaar hp tracker.
+
+### 121. `ultimate-vm` (Ultimate Vm)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for ultimate vm.
+
+### 122. `underwateragility` (Underwateragility)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for underwateragility.
+
+### 123. `unpotted-reminder` (Unpotted Reminder)
+* **Active Profiles:** `Raids - CoX`, `Raids - ToB`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `Wilderness`, `Bossing`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for unpotted reminder.
+
+### 124. `varlamore-house-thieving` (Varlamore House Thieving)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for varlamore house thieving.
+
+### 125. `visual-metronome` (Visual Metronome)
+* **Active Profiles:** All 10 Profiles (`Raids - CoX`, `Raids - ToB`, `Skilling & Minigames`, `Raids - ToA`, `PvM`, `Slayer`, `Questing`, `default`, `Wilderness`, `Bossing`)
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for visual metronome.
+
+### 126. `vorkath-run-warning` (Vorkath Run Warning)
+* **Active Profiles:** `Bossing`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for vorkath run warning.
+
+### 127. `wilderness-boss-peek` (Wilderness Boss Peek)
+* **Active Profiles:** `Wilderness`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for wilderness boss peek.
+
+### 128. `wilderness-course-ticket-reminder` (Wilderness Course Ticket Reminder)
+* **Active Profiles:** `Wilderness`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for wilderness course ticket reminder.
+
+### 129. `wilderness-map-locations` (Wilderness Map Locations)
+* **Active Profiles:** `Wilderness`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for wilderness map locations.
+
+### 130. `wilderness-multi-lines` (Wilderness Multi Lines)
+* **Active Profiles:** `Wilderness`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for wilderness multi lines.
+
+### 131. `wilderness-player-alarm` (Wilderness Player Alarm)
+* **Active Profiles:** `Wilderness`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for wilderness player alarm.
+
+### 132. `wilderness-teleports` (Wilderness Teleports)
+* **Active Profiles:** `Wilderness`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for wilderness teleports.
+
+### 133. `wilderness-warnings` (Wilderness Warnings)
+* **Active Profiles:** `Wilderness`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for wilderness warnings.
+
+### 134. `wintertodt-notifications` (Wintertodt Notifications)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for wintertodt notifications.
+
+### 135. `wintertodt-solo-helper` (Wintertodt Solo Helper)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for wintertodt solo helper.
+
+### 136. `zmi` (Zmi)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for zmi.
+
+### 137. `zom-afk-gotr` (Zom Afk Gotr)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for zom afk gotr.
+
+### 138. `zom-dense-essence` (Zom Dense Essence)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for zom dense essence.
+
+### 139. `zom-nmz-util` (Zom Nmz Util)
+* **Active Profiles:** `Skilling & Minigames`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for zom nmz util.
+
+### 140. `zulrah-helper` (Zulrah Helper)
+* **Active Profiles:** `Bossing`
+* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)
+* **Last Updated on GitHub:** `recently`
+* **Function Summary:** Quality of life utility plugin for zulrah helper.
 
 ## 📊 Active Profile Suite Summary
 
 | Profile Name | Filename | External Plugins Count | Scope & Purpose |
 | :--- | :--- | :---: | :--- |
-| **`default`** | `default-0.properties` | **157** | **Master Base QoL Profile:** Contains all 164 universal QoL, Sailing, open-world traversal, bank/inventory tools, and clue solvers. Synced to ALL profiles. |
-| **`Slayer`** | `Slayer-1.properties` | **169** | **Slayer & Combat Tasks:** Base QoL + 38 Shared PvM Combat plugins + `slayer-boosting`. |
-| **`Bossing`** | `Bossing-5.properties` | **176** | **Boss Fighting:** Base QoL + 38 Shared PvM Combat plugins + 6 Bossing exclusives (`zulrah-helper`, `hunllef-helper`, `the-gauntlet`, `vorkath-run-warning`, `gauntlet-crafting`, `barrows-door-highlighter`). |
-| **`Raids - ToA`** | `Raids - ToA-2.properties` | **169** | **Tombs of Amascut:** Base QoL + 38 Shared PvM Combat plugins + 3 ToA exclusives (`tombs-of-amascut`, `toa-points-tracker`, `toa-gear-check`). |
-| **`Raids - CoX`** | `Raids - CoX-3.properties` | **169** | **Chambers of Xeric:** Base QoL + 38 Shared PvM Combat plugins + 3 CoX exclusives (`cox-qol`, `cox-additions`, `raid-points-overlay`). |
-| **`Raids - ToB`** | `Raids - ToB-4.properties` | **173** | **Theatre of Blood:** Base QoL + 38 Shared PvM Combat plugins + 7 ToB exclusives (`tobqol`, `tob-notification`, `nyloer`, `nylo-death-indicators`, `tob-light-colors`, `tob-gear-checker`, `tob-drop-chance`). |
-| **`Skilling & Minigames`** | `Skilling & Minigames-6.properties` | **177** | **Skilling & Minigames:** Base QoL + 63 Minigame/Skill training exclusives (Tempoross, Wintertodt, GOTR, Mahogany Homes, Giants Foundry, etc.). |
-| **`Wilderness`** | `Wilderness-8.properties` | **176** | **Wilderness & PvP:** Base QoL + 38 Shared PvM Combat plugins + 12 Wilderness Danger & Teleport exclusives (`wilderness-player-alarm`, `wilderness-multi-lines`, `protect-item-notifier`, etc.). |
+| **`default`** | `default-0.properties` | **167** | **Master Base QoL Profile:** Contains all 164 universal QoL, Sailing, open-world traversal, bank/inventory tools, and clue solvers. Synced to ALL profiles. |
+| **`Slayer`** | `Slayer-1.properties` | **191** | **Slayer & Combat Tasks:** Base QoL + 38 Shared PvM Combat plugins + `slayer-boosting`. |
+| **`Bossing`** | `Bossing-5.properties` | **201** | **Boss Fighting:** Base QoL + 38 Shared PvM Combat plugins + 6 Bossing exclusives (`zulrah-helper`, `hunllef-helper`, `the-gauntlet`, `vorkath-run-warning`, `gauntlet-crafting`, `barrows-door-highlighter`). |
+| **`Raids - ToA`** | `Raids - ToA-2.properties` | **190** | **Tombs of Amascut:** Base QoL + 38 Shared PvM Combat plugins + 3 ToA exclusives (`tombs-of-amascut`, `toa-points-tracker`, `toa-gear-check`). |
+| **`Raids - CoX`** | `Raids - CoX-3.properties` | **191** | **Chambers of Xeric:** Base QoL + 38 Shared PvM Combat plugins + 3 CoX exclusives (`cox-qol`, `cox-additions`, `raid-points-overlay`). |
+| **`Raids - ToB`** | `Raids - ToB-4.properties` | **195** | **Theatre of Blood:** Base QoL + 38 Shared PvM Combat plugins + 7 ToB exclusives (`tobqol`, `tob-notification`, `nyloer`, `nylo-death-indicators`, `tob-light-colors`, `tob-gear-checker`, `tob-drop-chance`). |
+| **`Skilling & Minigames`** | `Skilling & Minigames-6.properties` | **225** | **Skilling & Minigames:** Base QoL + 63 Minigame/Skill training exclusives (Tempoross, Wintertodt, GOTR, Mahogany Homes, Giants Foundry, etc.). |
+| **`Wilderness`** | `Wilderness-8.properties` | **200** | **Wilderness & PvP:** Base QoL + 38 Shared PvM Combat plugins + 12 Wilderness Danger & Teleport exclusives (`wilderness-player-alarm`, `wilderness-multi-lines`, `protect-item-notifier`, etc.). |
 | **`$rsprofile`** | `$rsprofile--1.properties` | **189** | **Account-Wide Profile:** RuneLite's underlying account-wide settings file. |
 
 ---

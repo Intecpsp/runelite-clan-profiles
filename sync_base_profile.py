@@ -26,7 +26,8 @@ UNIVERSAL_SYNC_PREFIXES = [
     "inventorysetups.",
     "banktags.",
     "dudewheresmystuff.",
-    "rich-text-notes.",
+    "richtextnotes.",
+    "notes.",
     "customitemhovers."
 ]
 
@@ -141,7 +142,103 @@ def extract_pvm_configs(pvm_props: Dict[str, str], pvm_ext: Set[str]) -> Dict[st
             configs[k] = v
     return configs
 
+def sync_rich_text_notes_folders(dry_run: bool = False):
+    """Synchronize rich-text-notes directory folders across all profiles using the most recently modified profile folder as source."""
+    rt_base_dir = os.path.expanduser("~/.runelite/rich-text-notes")
+    if not os.path.exists(rt_base_dir):
+        return
+
+    json_path = os.path.join(PROFILES_DIR, "profiles.json")
+    if not os.path.exists(json_path):
+        return
+
+    try:
+        with open(json_path, 'r', encoding='utf-8') as f:
+            p_data = json.load(f)
+    except Exception:
+        return
+
+    profiles = p_data.get("profiles", [])
+    if not profiles:
+        return
+
+    profile_folders = {}
+    for p in profiles:
+        pid = p.get("id")
+        pname = p.get("name", "")
+        folder_name = f"profile_{pid}_{pname.replace(' ', '_')}"
+        profile_folders[folder_name] = pname
+
+    def get_folder_latest_mtime(folder_path: str) -> float:
+        latest = 0.0
+        if not os.path.exists(folder_path):
+            return latest
+        for root, dirs, files in os.walk(folder_path):
+            for file in files:
+                if file.endswith('.json') or file.endswith('.rtf'):
+                    try:
+                        mt = os.path.getmtime(os.path.join(root, file))
+                        if mt > latest:
+                            latest = mt
+                    except Exception:
+                        pass
+        return latest
+
+    source_folder = None
+    latest_mtime = 0.0
+
+    for folder_name in os.listdir(rt_base_dir):
+        folder_path = os.path.join(rt_base_dir, folder_name)
+        if os.path.isdir(folder_path) and folder_name in profile_folders:
+            notes_dir = os.path.join(folder_path, "notes")
+            if os.path.exists(notes_dir) and os.listdir(notes_dir):
+                mtime = get_folder_latest_mtime(folder_path)
+                if mtime > latest_mtime:
+                    latest_mtime = mtime
+                    source_folder = folder_name
+
+    if not source_folder:
+        return
+
+    source_path = os.path.join(rt_base_dir, source_folder)
+    source_notes_path = os.path.join(source_path, "notes")
+    source_layout_path = os.path.join(source_path, "layout.json")
+
+    source_notes = [f for f in os.listdir(source_notes_path) if f.endswith('.json') or f.endswith('.rtf')] if os.path.exists(source_notes_path) else []
+
+    target_count = 0
+    import shutil
+    for folder_name in profile_folders.keys():
+        if folder_name == source_folder:
+            continue
+
+        target_path = os.path.join(rt_base_dir, folder_name)
+        target_notes_path = os.path.join(target_path, "notes")
+
+        if not dry_run:
+            os.makedirs(target_notes_path, exist_ok=True)
+
+            if os.path.exists(source_layout_path):
+                shutil.copy2(source_layout_path, os.path.join(target_path, "layout.json"))
+
+            for note_file in source_notes:
+                shutil.copy2(os.path.join(source_notes_path, note_file), os.path.join(target_notes_path, note_file))
+
+            for existing_file in os.listdir(target_notes_path):
+                if (existing_file.endswith('.json') or existing_file.endswith('.rtf')) and existing_file not in source_notes:
+                    try:
+                        os.remove(os.path.join(target_notes_path, existing_file))
+                    except Exception:
+                        pass
+
+        target_count += 1
+
+    source_display = profile_folders.get(source_folder, source_folder)
+    note_docs_count = len([f for f in source_notes if f.endswith('.json')])
+    print(f"\n[RICH-TEXT-NOTES] Synced {note_docs_count} notes & layout from {source_display} across {target_count} profile directories!")
+
 def main():
+
     parser = argparse.ArgumentParser(description="Two-Tier Master Base QoL + PvM Combat Base + Universal Data Sync.")
     parser.add_argument("--base", default="default-0.properties", help="Tier 1 Master Base QoL profile (default: default-0.properties)")
     parser.add_argument("--pvm-base", default="PvM-10.properties", help="Tier 2 Master PvM Combat Base profile (default: PvM-10.properties)")
@@ -282,6 +379,9 @@ def main():
         print(f"       + Base settings merged: {settings_synced}")
         if is_combat:
             print(f"       + PvM settings merged: {pvm_synced}")
+
+    # 8. Synchronize Rich Text Notes folders across all profile directories
+    sync_rich_text_notes_folders(args.dry_run)
 
     print("\n[SUCCESS] Two-Tier Master Base, PvM Group, and Universal Data sync completed!")
 

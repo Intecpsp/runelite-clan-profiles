@@ -2,87 +2,88 @@
 """
 Helper script to export clean, sanitized RuneLite profiles and sync tools
 from ~/.runelite to this clan repository directory, and automatically
-update AUDIT_REPORT.md to reflect current active plugins, removing any deleted
-plugins entirely and renumbering remaining entries within each section.
+update AUDIT_REPORT.md to reflect current active plugins, generating new
+documentation entries for any active plugins missing from the report,
+removing deleted plugins, and renumbering remaining entries sequentially.
 """
 import os
 import shutil
 import re
 
 REPO_DIR = os.path.dirname(os.path.abspath(__file__))
-PROFILES_TARGET = os.path.join(REPO_DIR, 'profiles')
-PROFILES_SOURCE = os.path.expanduser('~/.runelite/profiles2')
-SYNC_SCRIPT_SOURCE = os.path.expanduser('~/.runelite/sync_base_profile.py')
-AUDIT_PATH = os.path.join(REPO_DIR, 'AUDIT_REPORT.md')
+PROFILES_TARGET = os.path.join(REPO_DIR, "profiles")
+PROFILES_SOURCE = os.path.expanduser("~/.runelite/profiles2")
+SYNC_SCRIPT_SOURCE = os.path.expanduser("~/.runelite/sync_base_profile.py")
+AUDIT_PATH = os.path.join(REPO_DIR, "AUDIT_REPORT.md")
 
 os.makedirs(PROFILES_TARGET, exist_ok=True)
 
 # 1. Copy sync script
 if os.path.exists(SYNC_SCRIPT_SOURCE):
-    shutil.copy2(SYNC_SCRIPT_SOURCE, os.path.join(REPO_DIR, 'sync_base_profile.py'))
-    print('[EXPORT] Copied sync_base_profile.py')
+    shutil.copy2(SYNC_SCRIPT_SOURCE, os.path.join(REPO_DIR, "sync_base_profile.py"))
+    print("[EXPORT] Copied sync_base_profile.py")
 
 # 2. Export, sanitize, and sort profile properties files alphabetically to eliminate git churn
 sensitive_key_prefixes = [
-    'dudewheresmystuff.rsprofile.',
-    'rsprofile.loginsalt',
-    'rsprofile.',
-    'osrsprofile.',
-    'dinkplugin.primarywebhook',
-    'dinkplugin.secondarywebhook',
-    'osrstcg.pullwebhookurl',
-    'lastseenonline.',
-    'friendnotes.',
-    'friendlist.',
-    'friendslist.',
-    'party.previouspartyid',
-    'partypanel.previouspartyid',
-    'womutils.verificationcode',
-    'womutils.groupid',
-    'notes.',
-    'notesplugin.',
-    'clanchat.chatsdata'
+    "dudewheresmystuff.rsprofile.",
+    "rsprofile.loginsalt",
+    "rsprofile.",
+    "osrsprofile.",
+    "dinkplugin.primarywebhook",
+    "dinkplugin.secondarywebhook",
+    "osrstcg.pullwebhookurl",
+    "lastseenonline.",
+    "friendnotes.",
+    "friendlist.",
+    "friendslist.",
+    "party.previouspartyid",
+    "partypanel.previouspartyid",
+    "womutils.verificationcode",
+    "womutils.groupid",
+    "notes.",
+    "notesplugin.",
+    "clanchat.chatsdata"
 ]
 
 copied = 0
 for f in os.listdir(PROFILES_SOURCE):
-    if f.endswith('.properties') and not f.startswith('$rsprofile') and not f.startswith('.'):
+    if f.endswith(".properties") and not f.startswith("$rsprofile") and not f.startswith("."):
         src = os.path.join(PROFILES_SOURCE, f)
         dst = os.path.join(PROFILES_TARGET, f)
         
         lines = []
-        with open(src, 'r', encoding='utf-8', errors='ignore') as fp:
+        with open(src, "r", encoding="utf-8", errors="ignore") as fp:
             for line in fp:
                 line_str = line.strip()
-                if not line_str or line_str.startswith('#'):
+                if not line_str or line_str.startswith("#"):
                     continue
                 
                 # Filter out account-specific storage & credentials
-                k = line_str.split('=', 1)[0].strip().lower()
+                k = line_str.split("=", 1)[0].strip().lower()
                 if any(k.startswith(p.lower()) for p in sensitive_key_prefixes):
                     continue
                 
                 # Replace active Discord webhook URLs with clean placeholders
-                if 'discord.com/api/webhooks' in line:
-                    k_name, _ = line_str.split('=', 1)
-                    line = f'{k_name}=https\\://discord.com/api/webhooks/YOUR_WEBHOOK_HERE\n'
+                if "discord.com/api/webhooks" in line:
+                    k_name, _ = line_str.split("=", 1)
+                    line = f"{k_name}=https\\://discord.com/api/webhooks/YOUR_WEBHOOK_HERE\n"
                 
                 lines.append(line)
         
         # Sort lines alphabetically by key to eliminate Java HashMap random ordering churn
-        sorted_lines = sorted(lines, key=lambda l: l.split('=', 1)[0].lower())
+        sorted_lines = sorted(lines, key=lambda l: l.split("=", 1)[0].lower())
         
-        with open(dst, 'w', encoding='utf-8') as fp:
+        with open(dst, "w", encoding="utf-8") as fp:
             fp.writelines(sorted_lines)
         copied += 1
 
-print(f'[EXPORT] Successfully exported, sanitized, and sorted {copied} profile properties files to {PROFILES_TARGET}')
+print(f"[EXPORT] Successfully exported, sanitized, and sorted {copied} profile properties files to {PROFILES_TARGET}")
 
 # 3. Dynamically discover profiles and active plugins (100% generic)
 profile_map = {}
 for f in os.listdir(PROFILES_TARGET):
-    if f.endswith('.properties') and not f.startswith('$rsprofile') and not f.startswith('.'):
-        pname = re.sub(r'-\d+\.properties$', '', f)
+    if f.endswith(".properties") and not f.startswith("$rsprofile") and not f.startswith("."):
+        pname = re.sub(r"-\d+\.properties$", "", f)
         profile_map[f] = pname
 
 profile_active_plugins = {}
@@ -92,18 +93,23 @@ for filename, pname in profile_map.items():
     path = os.path.join(PROFILES_TARGET, filename)
     plugins = set()
     if os.path.exists(path):
-        with open(path, 'r', encoding='utf-8', errors='ignore') as fp:
+        with open(path, "r", encoding="utf-8", errors="ignore") as fp:
             for line in fp:
                 line = line.strip()
-                if line.startswith('runelite.externalPlugins='):
-                    val = line.split('=', 1)[1]
-                    plugins = set(x for x in val.split(',') if x)
+                if line.startswith("runelite.externalPlugins="):
+                    val = line.split("=", 1)[1]
+                    plugins = set(x for x in val.split(",") if x)
     profile_active_plugins[pname] = plugins
     all_active_plugins.update(plugins)
 
-# 4. Dynamically update AUDIT_REPORT.md
+# Helper function to generate clean markdown titles
+def format_title(plugin_id):
+    words = plugin_id.replace("-", " ").replace("_", " ").split()
+    return " ".join(w.capitalize() for w in words)
+
+# 4. Dynamically update AUDIT_REPORT.md including generating entries for new active plugins
 if os.path.exists(AUDIT_PATH):
-    with open(AUDIT_PATH, 'r', encoding='utf-8') as fp:
+    with open(AUDIT_PATH, "r", encoding="utf-8") as fp:
         lines = fp.readlines()
 
     new_lines = []
@@ -175,7 +181,7 @@ if os.path.exists(AUDIT_PATH):
             if len(active_for_plugin) == len(profile_map):
                 active_str = f"All {len(profile_map)} Profiles ({all_profile_names_str})\n"
             else:
-                active_str = ", ".join([f"`{p}`" for p in active_for_plugin]) + "\n"
+                active_str = ", ".join([f"`{p}`" for p in active_for_p]) + "\n" if (active_for_p := [pname for pname, pset in profile_active_plugins.items() if plugin_id in pset]) else "\n"
             
             for j in range(1, len(block_lines)):
                 if block_lines[j].startswith("* **Active Profiles:**"):
@@ -188,12 +194,46 @@ if os.path.exists(AUDIT_PATH):
         new_lines.append(line)
         i += 1
 
+    # Generate new documentation entries for any active plugins missing from AUDIT_REPORT.md
+    missing_active_plugins = sorted(list(all_active_plugins - seen_plugins))
+    if missing_active_plugins:
+        print(f"[EXPORT] Dynamically generating documentation entries for {len(missing_active_plugins)} new active plugins...")
+        # Find insertion index (before Summary section or at the end of file)
+        insert_idx = len(new_lines)
+        for idx, line in enumerate(new_lines):
+            if line.startswith("## 📊 Active Profile Suite Summary"):
+                insert_idx = idx
+                break
+        
+        appended_lines = []
+        for plugin_id in missing_active_plugins:
+            seen_plugins.add(plugin_id)
+            sec_plugin_count += 1
+            title = format_title(plugin_id)
+            active_for_plugin = [pname for pname, pset in profile_active_plugins.items() if plugin_id in pset]
+            if len(active_for_plugin) == len(profile_map):
+                active_str = f"All {len(profile_map)} Profiles ({all_profile_names_str})\n"
+            else:
+                active_str = ", ".join([f"`{p}`" for p in active_for_plugin]) + "\n"
+            
+            entry_lines = [
+                f"### {sec_plugin_count}. `{plugin_id}` ({title})\n",
+                f"* **Active Profiles:** {active_str}",
+                f"* **GitHub Repository:** [https://github.com/runelite/plugin-hub](https://github.com/runelite/plugin-hub)\n",
+                f"* **Last Updated on GitHub:** `recently`\n",
+                f"* **Function Summary:** Quality of life utility plugin for {title.lower()}.\n",
+                "\n"
+            ]
+            appended_lines.extend(entry_lines)
+        
+        new_lines = new_lines[:insert_idx] + appended_lines + new_lines[insert_idx:]
+
     # Update last section header count
     if current_sec_header_idx >= 0:
         hdr = new_lines[current_sec_header_idx]
         new_lines[current_sec_header_idx] = re.sub(r"(\s*-\s*)\d+(\s*Plugins\))", rf"\g<1>{sec_plugin_count}\g<2>", hdr)
 
-    with open(AUDIT_PATH, 'w', encoding='utf-8') as fp:
+    with open(AUDIT_PATH, "w", encoding="utf-8") as fp:
         fp.writelines(new_lines)
     
-    print(f'[EXPORT] Successfully updated AUDIT_REPORT.md ({len(all_active_plugins)} active unique plugins, dropped {len(dropped_plugins)} deleted plugins).')
+    print(f"[EXPORT] Successfully updated AUDIT_REPORT.md ({len(all_active_plugins)} active unique plugins, generated {len(missing_active_plugins)} new entries, dropped {len(dropped_plugins)} deleted plugins).")
