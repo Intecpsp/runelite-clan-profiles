@@ -14,9 +14,46 @@ import sys
 import json
 import argparse
 import re
+import platform
+import subprocess
+import time
 from typing import Dict, Set, List
 
 PROFILES_DIR = os.path.expanduser("~/.runelite/profiles2")
+
+def is_runelite_running() -> bool:
+    """Cross-platform check to see if RuneLite process is active."""
+    os_type = platform.system()
+    try:
+        if os_type == "Windows":
+            cmd = ["tasklist", "/FI", "IMAGENAME eq RuneLite.exe"]
+            res = subprocess.run(cmd, capture_output=True, text=True)
+            return "RuneLite.exe" in res.stdout
+        else:
+            res = subprocess.run(["pgrep", "-f", "RuneLite"], capture_output=True)
+            return res.returncode == 0
+    except Exception:
+        return False
+
+def check_runelite_running_guard(no_guard: bool = False):
+    """Prompts the user if RuneLite is running to ensure session data is flushed to disk before sync."""
+    if no_guard:
+        return
+    if is_runelite_running():
+        print("\n" + "=" * 76)
+        print(" [GUARD] RuneLite is currently running!")
+        print(" Please close RuneLite so your in-game session data is saved to disk.")
+        print("=" * 76)
+        try:
+            input(" Press Enter once RuneLite has finished closing to proceed (or Ctrl+C to abort)... ")
+        except (KeyboardInterrupt, EOFError):
+            print("\n[ABORTED] Synchronization cancelled by user.")
+            sys.exit(0)
+
+        while is_runelite_running():
+            print(" [GUARD] RuneLite is still closing... waiting 1 second.")
+            time.sleep(1)
+        print(" [GUARD] RuneLite closed. Proceeding with synchronization.\n")
 
 # Pattern identifying Combat/PvM Activity Profiles
 COMBAT_PROFILE_PATTERNS = ["Slayer", "Raids - ToA", "Raids - CoX", "Raids - ToB", "Bossing", "Wilderness", "Questing", "PvM"]
@@ -28,7 +65,12 @@ UNIVERSAL_SYNC_PREFIXES = [
     "dudewheresmystuff.",
     "richtextnotes.",
     "notes.",
-    "customitemhovers."
+    "customitemhovers.",
+    "pvmTools.",
+    "arberToolkitUi.",
+    "cluescrolljuggling.",
+    "tictac7x-charges.",
+    "xpgoals_3."
 ]
 
 def parse_properties(filepath: str) -> Dict[str, str]:
@@ -130,16 +172,21 @@ def purge_orphaned_config_keys(props: Dict[str, str], uninstalled_plugins: Set[s
     return purged_count
 
 def extract_pvm_configs(pvm_props: Dict[str, str], pvm_ext: Set[str]) -> Dict[str, str]:
-    """Extract configuration keys corresponding to pvm_ext plugins from the master PvM profile."""
+    """Extract configuration keys and toggle states corresponding to pvm_ext plugins from the master PvM profile."""
     pvm_prefixes = [re.sub(r'[^a-zA-Z0-9]', '', p).lower() for p in pvm_ext]
     configs = {}
     for k, v in pvm_props.items():
-        if k.startswith('runelite.') or k == 'runelite.externalPlugins':
+        if k == 'runelite.externalPlugins':
             continue
         prefix = k.split('.', 1)[0] if '.' in k else k
         prefix_clean = re.sub(r'[^a-zA-Z0-9]', '', prefix).lower()
         if prefix_clean in pvm_prefixes or any(prefix_clean.startswith(p) for p in pvm_prefixes):
             configs[k] = v
+        elif k.startswith('runelite.'):
+            plugin_part = k.split('.', 1)[1]
+            plugin_clean = re.sub(r'[^a-zA-Z0-9]', '', plugin_part).lower()
+            if any(p in plugin_clean for p in pvm_prefixes):
+                configs[k] = v
     return configs
 
 def sync_rich_text_notes_folders(dry_run: bool = False):
@@ -243,7 +290,11 @@ def main():
     parser.add_argument("--base", default="default-0.properties", help="Tier 1 Master Base QoL profile (default: default-0.properties)")
     parser.add_argument("--pvm-base", default="PvM-10.properties", help="Tier 2 Master PvM Combat Base profile (default: PvM-10.properties)")
     parser.add_argument("--dry-run", action="store_true", help="Perform a dry run without modifying files.")
+    parser.add_argument("--no-guard", action="store_true", help="Bypass interactive check prompting to close RuneLite.")
     args = parser.parse_args()
+
+    # Pre-Flight Guard: Verify RuneLite is closed before reading/writing config
+    check_runelite_running_guard(args.no_guard)
 
     base_path = os.path.join(PROFILES_DIR, args.base)
     pvm_base_path = os.path.join(PROFILES_DIR, args.pvm_base)
@@ -313,13 +364,16 @@ def main():
 
         is_combat = any(pattern in pf for pattern in COMBAT_PROFILE_PATTERNS)
         is_base = pf.startswith("default-0")
-
-        # Exclusives are dynamically computed from disk
-        exclusives = target_ext - base_ext - pvm_ext
+        is_pvm_master = (pf == args.pvm_base)
 
         if is_base:
             updated_ext = base_ext
+        elif is_pvm_master:
+            # Pure PvM profile: strictly shared combat plugins only
+            updated_ext = pvm_ext
         else:
+            # Exclusives are dynamically computed from disk
+            exclusives = target_ext - base_ext - pvm_ext
             updated_ext = base_ext | (pvm_ext if is_combat else set()) | exclusives
 
         added_to_target = updated_ext - target_ext
@@ -330,13 +384,14 @@ def main():
         # 3. Built-in Plugin States Merge from Base
         base_props = props_map[args.base]
         builtin_synced = 0
-        for k, v in base_props.items():
-            if k.startswith('runelite.') and k.endswith('plugin') and k != 'runelite.externalPlugins':
-                if target_props.get(k) != v:
-                    target_props[k] = v
-                    builtin_synced += 1
+        if not is_pvm_master:
+            for k, v in base_props.items():
+                if k.startswith('runelite.') and k.endswith('plugin') and k != 'runelite.externalPlugins':
+                    if target_props.get(k) != v:
+                        target_props[k] = v
+                        builtin_synced += 1
 
-        # 4. Universal Data Sync
+        # 4. Universal Data Sync (Always synced across ALL profiles)
         univ_synced = 0
         for k, v in universal_data.items():
             if target_props.get(k) != v:
@@ -345,11 +400,23 @@ def main():
 
         # 5. Global Settings & Plugin Configurations Overwrite Sync from Base
         settings_synced = 0
-        for k, v in base_props.items():
-            if (k.startswith('runelite.') or '.' in k) and not any(k.startswith(prefix) for prefix in UNIVERSAL_SYNC_PREFIXES) and k != 'runelite.externalPlugins':
-                if target_props.get(k) != v:
-                    target_props[k] = v
-                    settings_synced += 1
+        if not is_pvm_master:
+            pvm_prefixes = [re.sub(r'[^a-zA-Z0-9]', '', p).lower() for p in pvm_ext]
+            for k, v in base_props.items():
+                if (k.startswith('runelite.') or '.' in k) and not any(k.startswith(prefix) for prefix in UNIVERSAL_SYNC_PREFIXES) and k != 'runelite.externalPlugins':
+                    prefix = k.split('.', 1)[0] if '.' in k else k
+                    prefix_clean = re.sub(r'[^a-zA-Z0-9]', '', prefix).lower()
+                    if prefix_clean in pvm_prefixes or any(prefix_clean.startswith(p) for p in pvm_prefixes):
+                        continue
+                    if k.startswith('runelite.'):
+                        plugin_part = k.split('.', 1)[1]
+                        plugin_clean = re.sub(r'[^a-zA-Z0-9]', '', plugin_part).lower()
+                        if any(p in plugin_clean for p in pvm_prefixes):
+                            continue
+
+                    if target_props.get(k) != v:
+                        target_props[k] = v
+                        settings_synced += 1
 
         # 6. Shared PvM Group Configs Merge (for Combat profiles only)
         pvm_synced = 0
